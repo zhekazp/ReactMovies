@@ -12,7 +12,7 @@ class Main extends React.Component{
     getFilms=(str, filtr)=>{
         this.setState({loading:true});
         const fltr= filtr === 'All'? '' : `&type=${filtr}`;
-        fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s='${str}${fltr}`)
+        fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s='${str}${fltr}`)
         .then(result=>result.json())
         .then(result=>result.Response === 'True'?
             this.setState({films: result.Search, loading:false}):
